@@ -1,4 +1,4 @@
-2. Sprint 2. Bases de datos
+<h1>2. Sprint 2. Bases de datos</h1>
 
 Duración del sprint: 15 días lectivos
 

@@ -8,11 +8,14 @@ SELECT nombre, precio FROM producto;
 -- 03
 SELECT * FROM producto;
 
+-- 03 BIS > CORREGIDO
+show columns from producto;
+
 -- 04
 SELECT nombre, precio, (precio * 1.13) FROM producto;
 
--- 05
-SELECT nombre FROM producto;
+-- 05 > CORREGIDO
+SELECT nombre as 'nombre de producto', precio as euros, (precio * 1.13) as 'dólares estadounidenses' FROM producto;
 
 -- 06
 SELECT UPPER(nombre), precio FROM producto;
@@ -35,8 +38,14 @@ SELECT fabricante.codigo FROM producto INNER JOIN fabricante ON producto.codigo_
 -- 12
 SELECT fabricante.codigo FROM producto INNER JOIN fabricante ON producto.codigo_fabricante = fabricante.codigo GROUP BY fabricante.codigo;
 
+-- 12 BIS > CORREGIDO
+SELECT fabricante.codigo FROM producto, fabricante WHERE producto.codigo_fabricante = fabricante.codigo GROUP BY fabricante.codigo;
+
 -- 13
 SELECT nombre FROM fabricante ORDER BY nombre ASC;
+
+-- 13
+SELECT nombre FROM fabricante ORDER BY nombre;
 
 -- 14
 SELECT nombre FROM fabricante ORDER BY nombre DESC;
@@ -101,6 +110,9 @@ SELECT fabricante.codigo, fabricante.nombre FROM fabricante INNER JOIN producto 
 -- 34
 SELECT fabricante.codigo, fabricante.nombre, producto.nombre FROM fabricante INNER JOIN producto ON fabricante.codigo = producto.codigo_fabricante;
 
+-- 34 BIS > CORREGIDO
+SELECT fabricante.codigo, fabricante.nombre, producto.nombre FROM fabricante LEFT JOIN producto ON fabricante.codigo = producto.codigo_fabricante
+
 -- 35
 SELECT fabricante.nombre FROM fabricante INNER JOIN producto ON fabricante.codigo != producto.codigo_fabricante WHERE NOT fabricante.codigo = ANY (SELECT producto.codigo_fabricante FROM producto) GROUP BY fabricante.nombre;
 
@@ -135,6 +147,9 @@ SELECT nombre, apellido1, apellido2 FROM persona WHERE tipo = 'alumno' AND telef
 -- 03
 SELECT * FROM persona WHERE tipo = 'alumno' AND fecha_nacimiento BETWEEN '1999-01-01' AND '1999-12-31';
 
+-- 03 BIS > CORREGIDO
+YEAR
+
 -- 04
 SELECT * FROM persona WHERE tipo = 'profesor' AND telefono IS NULL AND nif LIKE '%K';
 
@@ -149,6 +164,9 @@ SELECT asignatura.nombre, curso_escolar.anyo_inicio, curso_escolar.anyo_fin, per
 
 -- 08
 SELECT departamento.nombre, asignatura.id_profesor, grado.nombre FROM grado INNER JOIN asignatura ON grado.id = asignatura.id_grado INNER JOIN profesor ON asignatura.id_profesor = profesor.id_profesor INNER JOIN departamento ON profesor.id_departamento = departamento.id WHERE grado.nombre = 'Grado en Ingeniería Informática (Plan 2015)' GROUP BY departamento.nombre, asignatura.id_profesor, grado.nombre;
+
+-- 08 BIS > CORREGIDO
+SELECT departamento.nombre, asignatura.id_profesor FROM asignatura INNER JOIN profesor ON asignatura.id_profesor = profesor.id_profesor INNER JOIN departamento ON profesor.id_departamento = departamento.id WHERE asignatura.id_grado = 4 GROUP BY id_profesor
 
 -- 09
 SELECT persona.id, persona.nombre, persona.apellido1, persona.apellido2 FROM persona INNER JOIN alumno_se_matricula_asignatura ON persona.id = alumno_se_matricula_asignatura.id_alumno INNER JOIN curso_escolar ON alumno_se_matricula_asignatura.id_curso_escolar = curso_escolar.id WHERE curso_escolar.anyo_inicio = 2018 and curso_escolar.anyo_fin = 2019 GROUP BY persona.nombre;
@@ -195,6 +213,9 @@ SELECT g.nombre, count(a.id) FROM asignatura a LEFT JOIN grado g ON a.id_grado =
 
 -- 07
 SELECT g.nombre, a.tipo, sum(a.creditos) FROM asignatura a LEFT JOIN grado g ON a.id_grado = g.id GROUP BY g.nombre;
+
+-- 07 BIS > CORREGIDA
+SELECT g.nombre, a.tipo, sum(a.creditos) FROM asignatura a LEFT JOIN grado g ON a.id_grado = g.id GROUP BY g.nombre, a.tipo
 
 -- 08
 SELECT curso_escolar.anyo_inicio, count(alumno_se_matricula_asignatura.id_alumno) FROM alumno_se_matricula_asignatura LEFT JOIN curso_escolar ON alumno_se_matricula_asignatura.id_curso_escolar = curso_escolar.id GROUP BY curso_escolar.anyo_inicio;

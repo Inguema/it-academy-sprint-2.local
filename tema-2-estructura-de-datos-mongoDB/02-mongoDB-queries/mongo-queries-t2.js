@@ -1,3 +1,4 @@
+//CONSULTAS RESTAURANTE
 //01
 db.restaurant.find();
 

@@ -1,0 +1,79 @@
+//Colección Playlists
+{
+"_id" : ObjectId("61e54b5a9c4e46f0afe3e3d2"),
+"usuario_id" : ObjectId("61e54ddd9c4e46f0afe3e3d8"),
+"video_id" : [
+  ObjectId("61e54ddd9c4e46f0afe3e3d9")
+  ],
+"nombre" : "",
+"estado" : "",
+"fecha_publicacion" : ISODate("2022-01-22T23:00:00.000+0000")
+},
+
+//Colección Usuarios
+{
+"_id" : ObjectId("61e54b5a9c4e46f0afe3e3d2"),
+"nombre" : "",
+"email" : "",
+"password" : "",
+"sexo" : "",
+"pais" : "",
+"cp" : NumberInt(22500),
+"fecha_nacimiento" : ISODate("2002-01-22T23:00:00.000+0000"),
+"canal_id" :
+  {
+    "nombre" : "",
+    "descripcion" : "",
+    "fecha_creacion" : ISODate("2022-01-22T23:00:00.000+0000"),
+    "usuario_suscrito" :
+      [
+        {
+        "usuario_id_suscrito" : ObjectId("61e54b5a9c4e46f0afe3e3d1")
+        }
+      ]
+  }
+},
+
+//Colección Videos
+  {
+  "_id" : ObjectId("61e54b5a9c4e46f0afe3e3d2"),
+"usuario_id" : ObjectId("61e54ddd9c4e46f0afe3e3d9"),
+"estado_video" : "",
+"titulo" : "",
+"descripcion" : "",
+"tamnyo" : 2.55,
+"nombre_archivo_video" : "",
+"duracion" : 3.51,
+"thumbnail" : "",
+"reproducciones_numero" : NumberInt(5687),
+"likes_numero" : NumberInt(456),
+"dislike_numero" : NumberInt(45),
+"fecha_publicacion" : ISODate("2022-01-22T23:00:00.000+0000"),
+"etiqueta_id" :
+  {
+    "nombre" : ""
+  },
+"valoracion" :
+  [
+    {
+      "usuario_id_valora" : ObjectId("61e55482c9b7d72db873f0f4"),
+      "fecha_valoracion" : ISODate("2022-01-22T23:00:00.000+0000"),
+      "tipo_valoracion" : ""
+    }
+  ],
+"comentario" :
+  [
+    {
+      "usuario_id_crea_comentario" : ObjectId("61e55482c9b7d72db873f0f4"),
+      "texto_comentario" : "",
+      "comentario_comentado" :
+        [
+          {
+          "usuario_id_comenta" : ObjectId("61e55482c9b7d72db873f0f4"),
+          "fecha_comentario" : ISODate("2022-01-22T23:00:00.000+0000"),
+          "opinion_comentario" : ""
+          }
+        ]
+    }
+  ]
+}

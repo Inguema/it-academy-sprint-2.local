@@ -1,0 +1,63 @@
+//Colección Clientes
+{
+"_id" : ObjectId("61de00b9d7f5dddd3816a5d0"),
+"id_cliente_recomendado" : ObjectId("61de05d9d7f5dddd3816a5df"),
+"nombre" : "Adriana",
+"apellido" : "Huerta",
+"direccion" : {
+  "calle" : "Gran Vía",
+  "numero" : 32,
+  "puerta" : "A"
+  },
+"codigo_postal" : "25631",
+"telefono" : "123456789",
+"email" : "hola@quetal.com",
+"fecha_registro" : "2021-12-16 13:37:04"
+},
+
+//Colección Gafas
+{
+"_id" : ObjectId("61e015390a237002f183fbe7"),
+"nombre" : "Street",
+"graduacion" : 2.5,
+"precio" : 150.0,
+"marca" : {
+  "nombre" : "Ray-Ban",
+  "proveedor_id" : ObjectId("61e1585f77d110cb8ca96d80")
+  },
+"montura" : {
+  "tipo" : "pasta"
+  },
+"vidrio" : {
+  "color" : "negro"
+  }
+},
+
+//Colección Ventas
+{
+"_id" : ObjectId("61e0072e0a237002f183fbc6"),
+"fecha_venta" : ISODate("2022-01-13T11:04:27.784+0000"),
+"gafas_id" : ObjectId("61e0074b0a237002f183fbc9"),
+"empleado" : {
+  "nombre" : "Manolo",
+  "apellido" : "Alegría"
+  },
+"clientes_id" : ObjectId("61e0081e0a237002f183fbd7")
+},
+
+//Colección Proveedores
+{
+"_id" : ObjectId("61e005210a237002f183fbb8"),
+"nombre" : "TodoVisión",
+"direccion" : {
+  "calle" : "Mayor",
+  "numero" : NumberInt(16),
+  "puerta" : "B"
+  }
+"codigo_postal" : NumberInt(50002),
+"nif" : "123456789D",
+"ciudad" : "Zaragoza",
+"pais" : "España",
+"telefono" : NumberInt(615232323),
+"fax" : NumberInt(976454545)
+}

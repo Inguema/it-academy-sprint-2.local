@@ -1,0 +1,64 @@
+//Colección Pedidos
+{
+"_id" : ObjectId("61e1626e77d110cb8ca96da0"),
+"producto_id" : [
+    {
+      "_id" : ""
+    }
+  ],
+"tienda" : {
+  "tienda_id" : ObjectId("61e1649777d110cb8ca96da5"),
+  "empleado_id" : {
+    "nombre" : "Pedro",
+    "apellido_primero" : "Palomo",
+    "apellido_segundo" : "Rodríguez",
+    "tipo_empleado" : "repartidor",
+    "tipo_reparto" : "domicilio",
+    "nif" : "123456789D",
+    "telefono" : NumberInt(123456789)
+    },
+  "dirección" : {
+    "calle" : "Alegría",
+    "numero" : NumberInt(2),
+    "puerta" : "B"
+    },
+  "cp" : NumberInt(23500),
+  "localidad" : "Zaragoza",
+  "provincia" : "Zaragoza"
+  },
+"cliente" : {
+  "cliente_id" : NumberInt(1),
+  "nombre" : "Manuela",
+  "apellido_primero" : "López",
+  "apellido_segundo" : "García",
+  "direccion" : {
+    "calle" : "Mayor",
+    "numero" : NumberInt(2),
+    "puerta" : "B"
+    },
+  "cp" : NumberInt(123456),
+  "telefono" : NumberInt(123456789),
+  "localidad" : "Zaragoza",
+  "provincia" : "Zaragoza"
+  },
+"fecha_registro" : ISODate("2021-01-22T23:00:00.000+0000"),
+"cantidad_producto" : NumberInt(6),
+"precio_total" : NumberInt(150),
+"fecha_reparto" : ISODate("2021-01-24T23:00:00.000+0000")
+},
+
+//Colección Productos
+{
+"_id" : ObjectId("61e16c0c77d110cb8ca96da8"),
+"nombre" : "Pizza Margarita",
+"descripcion" : "Pizza 2 ingredientes con masa fina.",
+"imagen" : "https://unsplash.com/photos/SU1LFoeEUkk?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
+"precio" : 15.5,
+"producto_tipo" : {
+"tipo" : "pizza",
+"nombre" : "Margarita",
+"categoria" : "Clásica"
+},
+"cantidad" : NumberInt(2),
+"precio_unitario" : 15.5
+}

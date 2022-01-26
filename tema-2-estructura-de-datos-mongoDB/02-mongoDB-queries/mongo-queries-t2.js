@@ -26,14 +26,26 @@ db.restaurant.find({'grades.score':{$gt:90}});
 //09
 db.restaurant.find({'grades.score':{$gt:80, $lt:100}});
 
+//09 CORREGIDO
+db.restaurant.find({'grades':{$elemMatch:{'score': {$gt:80, $lt:100}}}});
+
 //10
 db.restaurant.find({'address.coord':{$lt:-95.754168}});
+
+//10 CORREGIDO
+b.restaurant.find({'address.coord.0':{$lt:-95.754168}});
 
 //11
 db.restaurant.find({$and:[{'address.coord':{$lt:-65.754168},'grades.score':{$gt:70},'cuisine':{$ne:'American '}}]});
 
+//11 CORREGIDO
+db.restaurant.find({'address.coord.0':{$lt:-65.754168},'grades.score':{$gt:70},'cuisine':{$not: {$regex:'American '}}});
+
 //12
 db.restaurant.find({'address.coord':{$lt:-65.754168},'grades.score':{$gt:70},'cuisine':{$not: {$regex:'American '}}});
+
+//12 CORREGIDO
+db.restaurant.find({'address.coord.0':{$lt:-65.754168},'grades.score':{$gt:70},'cuisine':{$not: {$regex:'American '}}});
 
 //13
 db.restaurant.find({'cuisine':{$ne:'American '},'grades.grade':'A','borough':{$ne:'Brooklyn'}}).sort({'cuisine':-1});
@@ -62,6 +74,9 @@ db.restaurant.find({'grades.score':{$lt:10}},{'restaurant_id':1,'name':1,'boroug
 //21
 db.restaurant.find({$or:[{'name':'/^Wil/'},{'cuisine':{$nin:['American ', 'Chinese']}}]},{'restaurant_id':1,'name':1,'borough':1,'cuisine':1});
 
+//21 CORREGIDO
+db.restaurant.find({$or:[{'name':'/^Wil/'},{'cuisine':{$nin:['American ', 'Chinese']}},{'cuisine':'seafood'}]},{'restaurant_id':1,'name':1,'borough':1,'cuisine':1});
+
 //21BIS
 db.restaurant.find({$or:[{'name':'/^Wil/'},{$and:[{'cuisine': {$ne:'American '}},{'cuisine': {$ne:'Chinese'}}]}]},{'restaurant_id':1,'name':1,'borough':1,'cuisine':1});
 
@@ -89,6 +104,9 @@ db.restaurant.find({'address.street':{$exists:true}},{'address':1,'street':1});
 //29
 db.restaurant.find({'address.coord':{$type:1}});
 
+//29 CORREGIDO
+db.restaurant.find({'address.coord':{$type:'double'}});
+
 //30
 db.restaurant.find({'grades.score':{$mod:[7,0]}},{'restaurant_id':1,'name':1,'grades':1,'score':1});
 
@@ -97,6 +115,9 @@ db.restaurant.find({'name':/mon/},{'name':1,'borough':1,'address.coord':1,'cuisi
 
 //32
 db.restaurant.find({'name':{$regex:/mon/i}},{'name':1,'borough':1,'address.coord':1,'cuisine':1})
+
+//32 CORREGIDO
+db.restaurant.find({'name':/^Mad/},{'name':1,'borough':1,'address.coord':1,'cuisine':1})
 
 
 
